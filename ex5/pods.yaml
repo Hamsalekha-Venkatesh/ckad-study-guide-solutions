@@ -1,0 +1,42 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    tier: frontend
+  annotations:
+    deployer: my-deploy
+  name: pod-1
+spec:
+  containers:
+  - image: nginx
+    name: pod-1
+    resources: {}
+  restartPolicy: Never
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    tier: backend
+  name: pod-2
+spec:
+  containers:
+  - image: nginx
+    name: pod-2
+    resources: {}
+  restartPolicy: Never
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    tier: backend
+  annotations:
+    deployer: my-deploy
+  name: pod-3
+spec:
+  containers:
+  - image: nginx
+    name: pod-3
+    resources: {}
+  restartPolicy: Never

@@ -1,0 +1,16 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  namespace: app-stack
+  name: access-nginx
+spec:
+  podSelector:
+    matchLabels:
+      app: todo
+      tier: database
+  ingress:
+  - from:
+    ports:
+    - protocol: TCP
+      port: 3306
+

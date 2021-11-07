@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: my-busy
+  name: my-busy
+spec:
+  containers:
+  - image: busybox
+    name: my-busy1
+    command: ["/bin/sh"]
+    args: ["-c", "ls; sleep 3600;"]
+  - image: busybox
+    name: my-busy2
+    command: ["/bin/sh"]
+    args: ["-c", “echo Hello World; sleep 3600;”]
+  - image: busybox
+    name: my-busy3
+    command: ["/bin/sh"]
+    args: ["-c", “echo this is the third container; sleep 3600;”]
+  restartPolicy: Always
