@@ -4,12 +4,12 @@ metadata:
   namespace: app-stack
   name: access-nginx
 spec:
-  podSelector:
-    matchLabels:
-      app: todo
-      tier: database
   ingress:
   - from:
+    - podSelector:
+         matchLabels:
+           app: todo
+           tier: backend
     ports:
     - protocol: TCP
       port: 3306
