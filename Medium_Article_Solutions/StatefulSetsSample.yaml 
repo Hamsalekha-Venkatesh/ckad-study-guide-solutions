@@ -23,7 +23,7 @@ spec:
         volumeMounts:
         - name: webroot
           mountPath: /usr/share/nginx/html
-  volumeClaimTemplates: # Dynamically creates a PVC each time a new pod replica is created. 
+  volumeClaimTemplates: # Dynamically creates/allocates a PVC each time a new pod replica is created. 
   - metadata:
       name: webroot
     spec:
